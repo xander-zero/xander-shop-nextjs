@@ -11,12 +11,13 @@ import {
 // useStyles
 import useStyles from "../../utils/styles";
 
-const Layout = ({ children }) => {
+const Layout = ({ title, children, description }) => {
   const classes = useStyles();
   return (
     <div>
       <Head>
-        <title>Xander Shop</title>
+        <title> {title ? `${title - "Xander Shop"}` : "Xander Shop"}</title>
+        {description && <meta name="description" content={description} />}
       </Head>
       <AppBar className={classes.navbar} position="static">
         <Toolbar>
@@ -27,12 +28,14 @@ const Layout = ({ children }) => {
           </NextLink>
           <div className={classes.grow}></div>
           <div>
-            <NextLink href="/cart" passHref>
-              <Link>Cart</Link>
-            </NextLink>
-            <NextLink href="/login" passHref>
-              <Link>Login</Link>
-            </NextLink>
+            <div className={classes.navLink}>
+              <NextLink href="/cart" passHref>
+                <Link>Cart</Link>
+              </NextLink>
+              <NextLink href="/login" passHref>
+                <Link>Login</Link>
+              </NextLink>
+            </div>
           </div>
         </Toolbar>
       </AppBar>

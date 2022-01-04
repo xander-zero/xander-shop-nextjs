@@ -11,6 +11,7 @@ import {
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import data from "../utils/data";
+import NextLink from "next/link";
 
 export default function Home() {
   const { products } = data;
@@ -22,17 +23,19 @@ export default function Home() {
           {products.map((product) => (
             <Grid item md={4} key={product.name}>
               <Card>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={product.image}
-                    title={product.name}
-                  />
-                  <CardContent>
-                    <Typography>{product.name}</Typography>
-                    <Typography>${product.price}</Typography>
-                  </CardContent>
-                </CardActionArea>
+                <NextLink href={`/product/${product.slug}`} passHref>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image={product.image}
+                      title={product.name}
+                    />
+                    <CardContent>
+                      <Typography>{product.name}</Typography>
+                      <Typography>${product.price}</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </NextLink>
                 <CardActions>
                   <Button size="small" color="primary">
                     Add To Cart

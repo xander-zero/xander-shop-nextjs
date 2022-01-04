@@ -4,7 +4,7 @@ const useStyles = makeStyles({
     backgroundColor: "#203040",
     "& a": {
       color: "#FFFFFF",
-      marginLeft: "10",
+      marginLeft: "10px",
     },
   },
   brand: {
@@ -19,6 +19,11 @@ const useStyles = makeStyles({
   },
   footer: {
     textAlign: "center",
+    marginTop: "10px",
+  },
+  section: {
+    marginTop: "10px",
+    marginBottom: "10px",
   },
 });
 
